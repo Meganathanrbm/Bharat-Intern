@@ -1,0 +1,32 @@
+<%- include("partials/header") -%>
+<section class="compose">
+    <h1>Compose</h1>
+    <form action="<%= PTYPE %>" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input class="form-control" type="text" value="<%= UPDATECONTENTTITLE %>" name="title"  required autofocus >
+        </div>
+        <div class="form-group">
+            <label for="image">Upload File</label>
+            <div class="drag-container" id="container">
+               Drop images or videos here
+            </div>       
+            <% if (CTYPE === "submit" ) { %>
+            <input type="file" class="fileInput"  name="avatar"  required>
+            <% }else{ %>
+            <input type="file" class="fileInput"  name="avatar"  >
+            <% } %>
+        </div>
+     
+        <div class="form-group">
+            <label for="post">Post</label>
+            <textarea class="form-control" name="postContent"  cols="30" rows="10" required><%= UPDATECONTENTCONTENT %></textarea>
+        </div>
+        <button class="btn-primary btn" name="post" value="<%=CTYPE%>" type="submit">Publish</button>
+    </form>
+</section>
+
+
+
+
+<%- include("partials/footer") -%>

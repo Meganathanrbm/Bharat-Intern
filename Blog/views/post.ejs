@@ -1,0 +1,27 @@
+<%- include("partials/header") -%>
+
+<section class="post">
+    <div class="postTitle">
+        <h1><%=POSTTITLE%></h1>
+        <div class="dlt-edit">
+            <form action="edit" method="post">
+                <button type="submit" class="editContent" name="editContent" value="<%=POSTID%>"><i class="fa-regular fa-pen-to-square"></i></button>
+                <button type="submit" class="dltContent" name="deleteContent" value="<%=POSTID%>"><i class="fa-solid fa-trash"></i></button>
+            </form>
+        </div>
+    </div>
+    <div class="postContent">
+        <div class="postContent-img">
+            <% if (MEDIATYPE === "image/jpeg" ) { %>
+                <img class="post-content-img" src="<%= IMAGEURL %>" alt="">
+              <% }else{ %>
+                <video class="post-content-vid"  type="video/mp4" src="<%= IMAGEURL %>" controls  autoplay loop></video>
+              <% } %>
+        </div>
+        <p><%=POSTCONTENT%></p>
+    </div>
+
+</section>
+
+
+<%- include("partials/footer") -%>
